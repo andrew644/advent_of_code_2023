@@ -35,3 +35,15 @@ test "day2p2" {
     const expected: u32 = 70924;
     try std.testing.expectEqual(expected, actual);
 }
+
+test "day3p1" {
+    const actual = try day3.part1();
+    const expected: u32 = 551094;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day3p2" {
+    const actual = try day3.part2();
+    const expected: u32 = 80179647;
+    try std.testing.expectEqual(expected, actual);
+}
