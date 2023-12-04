@@ -50,3 +50,15 @@ test "day3p2" {
     const expected: u32 = 80179647;
     try std.testing.expectEqual(expected, actual);
 }
+
+test "day4p1" {
+    const actual = try day4.part1();
+    const expected: u32 = 25004;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day4p2" {
+    const actual = try day4.part2();
+    const expected: u32 = 14427616;
+    try std.testing.expectEqual(expected, actual);
+}
