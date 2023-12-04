@@ -1,12 +1,12 @@
 const std = @import("std");
 const aoc_util = @import("../util/io.zig");
 
-pub fn part1() !void {
+pub fn part1() !u32 {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
     defer _ = gpa.deinit();
 
-    var input = try aoc_util.AocFile.readInput(allocator);
+    var input = try aoc_util.AocFile.readInput(allocator, 2);
     defer input.deinit();
 
     var sum: u32 = 0;
@@ -21,7 +21,7 @@ pub fn part1() !void {
                 if (isGamePossible(colors) == false) {
                     possible = false;
                 }
-                std.debug.print("{s}\n", .{colors});
+                //std.debug.print("{s}\n", .{colors});
             }
 
             if (possible) {
@@ -30,7 +30,8 @@ pub fn part1() !void {
         }
         line_num += 1;
     }
-    std.debug.print("{d}\n", .{sum});
+    //std.debug.print("{d}\n", .{sum});
+    return sum;
 }
 
 pub fn isGamePossible(colors: []const u8) bool {
@@ -56,12 +57,12 @@ pub fn isGamePossible(colors: []const u8) bool {
     return true;
 }
 
-pub fn part2() !void {
+pub fn part2() !u32 {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
     defer _ = gpa.deinit();
 
-    var input = try aoc_util.AocFile.readInput(allocator);
+    var input = try aoc_util.AocFile.readInput(allocator, 2);
     defer input.deinit();
 
     var sum: u32 = 0;
@@ -75,11 +76,12 @@ pub fn part2() !void {
         }
         line_num += 1;
     }
-    std.debug.print("{d}\n", .{sum});
+    //std.debug.print("{d}\n", .{sum});
+    return sum;
 }
 
 pub fn getGamePower(colors: []const u8) u32 {
-    std.debug.print("{s}\n", .{colors});
+    //std.debug.print("{s}\n", .{colors});
     var iter_colors = std.mem.splitSequence(u8, colors, "; ");
     var maxRed: u32 = 0;
     var maxBlue: u32 = 0;
@@ -105,6 +107,6 @@ pub fn getGamePower(colors: []const u8) u32 {
             }
         }
     }
-    std.debug.print("{d}\n", .{maxGreen * maxBlue * maxRed});
+    //std.debug.print("{d}\n", .{maxGreen * maxBlue * maxRed});
     return maxGreen * maxBlue * maxRed;
 }

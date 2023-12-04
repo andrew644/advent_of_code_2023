@@ -1,12 +1,12 @@
 const std = @import("std");
 const aoc_util = @import("../util/io.zig");
 
-pub fn part1() !void {
+pub fn part1() !u32 {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
     defer _ = gpa.deinit();
 
-    var input = try aoc_util.AocFile.readInput(allocator);
+    var input = try aoc_util.AocFile.readInput(allocator, 1);
     defer input.deinit();
 
     var sum: u32 = 0;
@@ -43,15 +43,16 @@ pub fn part1() !void {
         line_num += 1;
     }
 
-    std.debug.print(".{d}.\n", .{sum});
+    //std.debug.print(".{d}.\n", .{sum});
+    return sum;
 }
 
-pub fn part2() !void {
+pub fn part2() !u32 {
     var gpa = std.heap.GeneralPurposeAllocator(.{}){};
     const allocator = gpa.allocator();
     defer _ = gpa.deinit();
 
-    var input = try aoc_util.AocFile.readInput(allocator);
+    var input = try aoc_util.AocFile.readInput(allocator, 1);
     defer input.deinit();
 
     var sum: u32 = 0;
@@ -114,9 +115,10 @@ pub fn part2() !void {
             }
         }
         sum += 10 * first + last;
-        std.debug.print(".{s} -> {s}. answer:{d}.sum:{d}\n", .{ input.lines[line_num], s_tmp, 10 * first + last, sum });
+        //std.debug.print(".{s} -> {s}. answer:{d}.sum:{d}\n", .{ input.lines[line_num], s_tmp, 10 * first + last, sum });
         line_num += 1;
     }
 
-    std.debug.print(".{d}.\n", .{sum});
+    //std.debug.print(".{d}.\n", .{sum});
+    return sum;
 }
