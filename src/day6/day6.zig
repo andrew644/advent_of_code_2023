@@ -29,13 +29,11 @@ pub fn part1() !u32 {
         result *= ways_to_win;
     }
 
-    std.debug.print("{d}\n", .{result});
+    //std.debug.print("{d}\n", .{result});
     return result;
 }
 
 pub fn part2() !u32 {
-    //Time:      35696887
-    //Distance:      213116810861248
     const time = 35696887;
     const distance = 213116810861248;
 
@@ -45,6 +43,6 @@ pub fn part2() !u32 {
         const my_distance = i * (time - i);
         if (my_distance > distance) ways_to_win += 1;
     }
-    std.debug.print("{d}\n", .{ways_to_win});
+    //std.debug.print("{d}\n", .{ways_to_win});
     return ways_to_win;
 }

@@ -23,14 +23,20 @@ pub const AocFile = struct {
 
         var iter = std.mem.splitSequence(u8, file_buffer, "\n");
         var file_lines: u32 = 0;
-        while (iter.next()) |_| {
+        var last_line_empty = false;
+        while (iter.next()) |line| {
+            last_line_empty = line.len == 0;
             file_lines += 1;
+        }
+        if (last_line_empty) {
+            file_lines -= 1;
         }
         iter.reset();
 
         var result = try allocator.alloc([]u8, file_lines);
         var current_line: u32 = 0;
         while (iter.next()) |line| {
+            if (current_line >= file_lines) break;
             const heap_line = try allocator.alloc(u8, line.len);
             @memcpy(heap_line, line);
             result[current_line] = heap_line;

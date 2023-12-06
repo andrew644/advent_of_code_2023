@@ -22,7 +22,7 @@ pub fn part1() !u32 {
 
     var sum: u32 = 0;
     for (input.lines, 0..) |line, line_num| {
-        std.debug.print("{s}\n", .{line});
+        //std.debug.print("{s}\n", .{line});
 
         var inNum: bool = false;
         var numStart: usize = 0;
@@ -39,10 +39,10 @@ pub fn part1() !u32 {
                 if (character_index == line.len - 1) {
                     const parsed_num = try std.fmt.parseInt(u32, line[numStart .. character_index + 1], 10);
                     if (adjacent) {
-                        std.debug.print("parsed:{d} Adjacent at end\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} Adjacent at end\n", .{parsed_num});
                         sum += parsed_num;
                     } else {
-                        std.debug.print("parsed:{d} at end\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} at end\n", .{parsed_num});
                     }
                     inNum = false;
                     adjacent = false;
@@ -51,10 +51,10 @@ pub fn part1() !u32 {
                 if (inNum) {
                     const parsed_num = try std.fmt.parseInt(u32, line[numStart..character_index], 10);
                     if (adjacent) {
-                        std.debug.print("parsed:{d} Adjacent\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} Adjacent\n", .{parsed_num});
                         sum += parsed_num;
                     } else {
-                        std.debug.print("parsed:{d}\n", .{parsed_num});
+                        //std.debug.print("parsed:{d}\n", .{parsed_num});
                     }
                     inNum = false;
                     adjacent = false;
@@ -63,7 +63,7 @@ pub fn part1() !u32 {
         }
     }
 
-    std.debug.print("\n{d}\n", .{sum});
+    //std.debug.print("\n{d}\n", .{sum});
     return sum;
 }
 
@@ -146,7 +146,7 @@ pub fn part2old() !u32 {
 
     var sum: u32 = 0;
     for (input.lines, 0..) |line, line_num| {
-        std.debug.print("{s}\n", .{line});
+        //std.debug.print("{s}\n", .{line});
 
         for (line, 0..) |character, character_index| {
             if (character == '*') {
@@ -157,7 +157,7 @@ pub fn part2old() !u32 {
             }
         }
     }
-    std.debug.print("\n{d}\n", .{sum});
+    //std.debug.print("\n{d}\n", .{sum});
     return sum;
 }
 
@@ -221,7 +221,7 @@ fn gearAdjacent(line: usize, character: usize, file: aoc_util.AocFile) u32 {
     }
 
     if (adjacent == 2) {
-        std.debug.print("two adj at {d}:{d}\n", .{ character, nums[0] * nums[1] });
+        //std.debug.print("two adj at {d}:{d}\n", .{ character, nums[0] * nums[1] });
         return nums[0] * nums[1];
     }
     return 0;
@@ -259,7 +259,7 @@ fn parseNumber(line: usize, character: usize, file: aoc_util.AocFile) u32 {
         c_index += 1;
     }
 
-    std.debug.print("got num:{d}\n", .{number});
+    //std.debug.print("got num:{d}\n", .{number});
     return number;
 }
 
@@ -276,7 +276,7 @@ pub fn part2() !u32 {
 
     var sum: u32 = 0;
     for (input.lines, 0..) |line, line_num| {
-        std.debug.print("{s}\n", .{line});
+        //std.debug.print("{s}\n", .{line});
 
         var inNum: bool = false;
         var numStart: usize = 0;
@@ -290,23 +290,23 @@ pub fn part2() !u32 {
                 if (point.valid == false) {
                     point = isStarAdjacent(line_num, character_index, input);
                 }
-                std.debug.print("{d}.{d} * -> {d}.{d} {any}\n", .{ line_num, character_index, point.line, point.character, point.valid });
+                //std.debug.print("{d}.{d} * -> {d}.{d} {any}\n", .{ line_num, character_index, point.line, point.character, point.valid });
                 if (character_index == line.len - 1) {
                     const parsed_num = try std.fmt.parseInt(u32, line[numStart .. character_index + 1], 10);
                     if (point.valid) {
-                        std.debug.print("parsed:{d} Adjacent at end\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} Adjacent at end\n", .{parsed_num});
                         const key = point.line * 100000 + point.character;
-                        std.debug.print("key:{d}\n", .{key});
+                        //std.debug.print("key:{d}\n", .{key});
                         const value: ?GearSum = gearMap.get(key);
                         if (value) |v| {
-                            std.debug.print("got existing:sum{d} adj:{d}\n", .{ v.sum, v.num_adj });
+                            //std.debug.print("got existing:sum{d} adj:{d}\n", .{ v.sum, v.num_adj });
                             try gearMap.put(key, GearSum{ .sum = parsed_num * v.sum, .num_adj = v.num_adj + 1 });
                         } else {
-                            std.debug.print("got new:sum{d} adj:{d}\n", .{ parsed_num, 1 });
+                            //std.debug.print("got new:sum{d} adj:{d}\n", .{ parsed_num, 1 });
                             try gearMap.put(key, GearSum{ .sum = parsed_num, .num_adj = 1 });
                         }
                     } else {
-                        std.debug.print("parsed:{d} at end\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} at end\n", .{parsed_num});
                     }
                     inNum = false;
                     point.valid = false;
@@ -315,19 +315,19 @@ pub fn part2() !u32 {
                 if (inNum) {
                     const parsed_num = try std.fmt.parseInt(u32, line[numStart..character_index], 10);
                     if (point.valid) {
-                        std.debug.print("parsed:{d} Adjacent\n", .{parsed_num});
+                        //std.debug.print("parsed:{d} Adjacent\n", .{parsed_num});
                         const key = point.line * 100000 + point.character;
-                        std.debug.print("key:{d}\n", .{key});
+                        //std.debug.print("key:{d}\n", .{key});
                         const value: ?GearSum = gearMap.get(key);
                         if (value) |v| {
-                            std.debug.print("got existing:sum{d} adj:{d}\n", .{ v.sum, v.num_adj });
+                            //std.debug.print("got existing:sum{d} adj:{d}\n", .{ v.sum, v.num_adj });
                             try gearMap.put(key, GearSum{ .sum = parsed_num * v.sum, .num_adj = v.num_adj + 1 });
                         } else {
-                            std.debug.print("got new:sum{d} adj:{d}\n", .{ parsed_num, 1 });
+                            //std.debug.print("got new:sum{d} adj:{d}\n", .{ parsed_num, 1 });
                             try gearMap.put(key, GearSum{ .sum = parsed_num, .num_adj = 1 });
                         }
                     } else {
-                        std.debug.print("parsed:{d}\n", .{parsed_num});
+                        //std.debug.print("parsed:{d}\n", .{parsed_num});
                     }
                     inNum = false;
                     point.valid = false;
@@ -339,15 +339,15 @@ pub fn part2() !u32 {
     for (gearMap.keys()) |key| {
         const geary = gearMap.get(key);
         if (geary) |gear| {
-            std.debug.print("{d} - adj:{d} {d}\n", .{ key, gear.num_adj, gear.sum });
+            //std.debug.print("{d} - adj:{d} {d}\n", .{ key, gear.num_adj, gear.sum });
             if (gear.num_adj == 2) {
                 sum += gear.sum;
             }
         } else {
-            std.debug.print("ERROR!!!!!!!!!!!!!!!!!!!!!!!!!! {d}\n", .{key});
+            //std.debug.print("ERROR!!!!!!!!!!!!!!!!!!!!!!!!!! {d}\n", .{key});
         }
     }
 
-    std.debug.print("\n{d}\n", .{sum});
+    //std.debug.print("\n{d}\n", .{sum});
     return sum;
 }

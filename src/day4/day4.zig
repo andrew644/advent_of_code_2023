@@ -67,9 +67,9 @@ pub fn part1() !u32 {
         if (wins > 0) {
             const one: u32 = 1;
             sum += one << wins - 1;
-            std.debug.print("wins: {d} -> {d}\n", .{ wins, one << wins - 1 });
+            //std.debug.print("wins: {d} -> {d}\n", .{ wins, one << wins - 1 });
         } else {
-            std.debug.print("no wins: {d} -> {d}\n", .{ wins, 0 });
+            //std.debug.print("no wins: {d} -> {d}\n", .{ wins, 0 });
         }
 
         for (numbers, 0..) |_, i| {
@@ -77,7 +77,7 @@ pub fn part1() !u32 {
         }
     }
 
-    std.debug.print("sum:{d}\n", .{sum});
+    //std.debug.print("sum:{d}\n", .{sum});
     return sum;
 }
 
@@ -149,9 +149,9 @@ pub fn part2() !u32 {
         if (wins > 0) {
             const one: u32 = 1;
             sum += one << wins - 1;
-            std.debug.print("wins: {d} -> {d}\n", .{ wins, one << wins - 1 });
+            //std.debug.print("wins: {d} -> {d}\n", .{ wins, one << wins - 1 });
         } else {
-            std.debug.print("no wins: {d} -> {d}\n", .{ wins, 0 });
+            //std.debug.print("no wins: {d} -> {d}\n", .{ wins, 0 });
         }
         try num_wins.append(wins);
 
@@ -167,7 +167,7 @@ pub fn part2() !u32 {
     }
 
     for (num_wins.items, 0..) |wins, i| {
-        std.debug.print("i:{d} copies:{d}\n", .{ i, copies[i] });
+        //std.debug.print("i:{d} copies:{d}\n", .{ i, copies[i] });
         var below: u32 = 0;
         while (below < wins) : (below += 1) {
             copies[i + below + 1] += copies[i];
@@ -179,6 +179,6 @@ pub fn part2() !u32 {
         part2_sum += i;
     }
 
-    std.debug.print("sum:{d}\n", .{part2_sum});
+    //std.debug.print("sum:{d}\n", .{part2_sum});
     return part2_sum;
 }

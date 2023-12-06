@@ -7,17 +7,23 @@ const day5 = @import("day5/day5.zig");
 const day6 = @import("day6/day6.zig");
 
 pub fn main() !void {
-    //try day1.part1();
-    //try day1.part2();
-    //try day2.part1();
-    //try day2.part2();
-    //try day3.part1();
-    //try day3.part2();
-    //_ = try day4.part1();
-    //_ = try day4.part2();
-    //_ = try day5.part1();
-    //_ = try day6.part1();
-    _ = try day6.part2();
+    std.debug.print("{d}\n", .{try day1.part1()});
+    std.debug.print("{d}\n", .{try day1.part2()});
+
+    std.debug.print("{d}\n", .{try day2.part1()});
+    std.debug.print("{d}\n", .{try day2.part2()});
+
+    std.debug.print("{d}\n", .{try day3.part1()});
+    std.debug.print("{d}\n", .{try day3.part2()});
+
+    std.debug.print("{d}\n", .{try day4.part1()});
+    std.debug.print("{d}\n", .{try day4.part2()});
+
+    std.debug.print("{d}\n", .{try day5.part1()});
+    std.debug.print("{d}\n", .{try day5.part2()});
+
+    std.debug.print("{d}\n", .{try day6.part1()});
+    std.debug.print("{d}\n", .{try day6.part2()});
 }
 
 test "day1p1" {
@@ -76,6 +82,18 @@ test "day5p1" {
 
 test "day5p2" {
     const actual = try day5.part2();
-    const expected: u64 = 14427616;
+    const expected: u64 = 51399228;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day6p1" {
+    const actual = try day6.part1();
+    const expected: u32 = 170000;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day6p2" {
+    const actual = try day6.part2();
+    const expected: u32 = 20537782;
     try std.testing.expectEqual(expected, actual);
 }
