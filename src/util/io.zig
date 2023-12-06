@@ -26,15 +26,11 @@ pub const AocFile = struct {
         while (iter.next()) |_| {
             file_lines += 1;
         }
-        file_lines -= 1; // Remove last line which is blank
         iter.reset();
 
         var result = try allocator.alloc([]u8, file_lines);
         var current_line: u32 = 0;
         while (iter.next()) |line| {
-            if (line.len <= 0) {
-                continue;
-            }
             const heap_line = try allocator.alloc(u8, line.len);
             @memcpy(heap_line, line);
             result[current_line] = heap_line;
