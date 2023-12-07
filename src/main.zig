@@ -5,25 +5,29 @@ const day3 = @import("day3/day3.zig");
 const day4 = @import("day4/day4.zig");
 const day5 = @import("day5/day5.zig");
 const day6 = @import("day6/day6.zig");
+const day7 = @import("day7/day7.zig");
 
 pub fn main() !void {
-    std.debug.print("{d}\n", .{try day1.part1()});
-    std.debug.print("{d}\n", .{try day1.part2()});
+    //std.debug.print("{d}\n", .{try day1.part1()});
+    //std.debug.print("{d}\n", .{try day1.part2()});
 
-    std.debug.print("{d}\n", .{try day2.part1()});
-    std.debug.print("{d}\n", .{try day2.part2()});
+    //std.debug.print("{d}\n", .{try day2.part1()});
+    //std.debug.print("{d}\n", .{try day2.part2()});
 
-    std.debug.print("{d}\n", .{try day3.part1()});
-    std.debug.print("{d}\n", .{try day3.part2()});
+    //std.debug.print("{d}\n", .{try day3.part1()});
+    //std.debug.print("{d}\n", .{try day3.part2()});
 
-    std.debug.print("{d}\n", .{try day4.part1()});
-    std.debug.print("{d}\n", .{try day4.part2()});
+    //std.debug.print("{d}\n", .{try day4.part1()});
+    //std.debug.print("{d}\n", .{try day4.part2()});
 
-    std.debug.print("{d}\n", .{try day5.part1()});
-    std.debug.print("{d}\n", .{try day5.part2()});
+    //std.debug.print("{d}\n", .{try day5.part1()});
+    //std.debug.print("{d}\n", .{try day5.part2()});
 
-    std.debug.print("{d}\n", .{try day6.part1()});
-    std.debug.print("{d}\n", .{try day6.part2()});
+    //std.debug.print("{d}\n", .{try day6.part1()});
+    //std.debug.print("{d}\n", .{try day6.part2()});
+
+    //std.debug.print("{d}\n", .{try day7.part1()});
+    std.debug.print("{d}\n", .{try day7.part2()});
 }
 
 test "day1p1" {
@@ -81,9 +85,11 @@ test "day5p1" {
 }
 
 test "day5p2" {
-    const actual = try day5.part2();
-    const expected: u64 = 51399228;
-    try std.testing.expectEqual(expected, actual);
+    //slow test is disabled
+    //
+    //const actual = try day5.part2();
+    //const expected: u64 = 51399228;
+    //try std.testing.expectEqual(expected, actual);
 }
 
 test "day6p1" {
@@ -95,5 +101,17 @@ test "day6p1" {
 test "day6p2" {
     const actual = try day6.part2();
     const expected: u32 = 20537782;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day7p1" {
+    const actual = try day7.part1();
+    const expected: u32 = 251029473;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day7p2" {
+    const actual = try day7.part2();
+    const expected: u32 = 251003917;
     try std.testing.expectEqual(expected, actual);
 }

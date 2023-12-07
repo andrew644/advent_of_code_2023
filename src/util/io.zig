@@ -7,7 +7,7 @@ pub const AocFile = struct {
 
     pub fn readInput(allocator: Allocator, day: u32) !AocFile {
         var file_path_buf: [256]u8 = undefined;
-        const file_path = try std.fmt.bufPrint(&file_path_buf, "input_day{d}.txt", .{day});
+        const file_path = try std.fmt.bufPrint(&file_path_buf, "input/input_day{d}.txt", .{day});
         const file = try std.fs.cwd().openFile(
             file_path,
             .{},
