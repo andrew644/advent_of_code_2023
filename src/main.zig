@@ -7,6 +7,7 @@ const day5 = @import("day5/day5.zig");
 const day6 = @import("day6/day6.zig");
 const day7 = @import("day7/day7.zig");
 const day8 = @import("day8/day8.zig");
+const day9 = @import("day9/day9.zig");
 
 pub fn main() !void {
     //std.debug.print("{d}\n", .{try day1.part1()});
@@ -32,6 +33,9 @@ pub fn main() !void {
 
     //std.debug.print("{d}\n", .{try day8.part1()});
     //std.debug.print("{d}\n", .{try day8.part2()});
+
+    // std.debug.print("{d}\n", .{try day9.part1()});
+    // std.debug.print("{d}\n", .{try day9.part2()});
 }
 
 test "day1p1" {
@@ -129,5 +133,17 @@ test "day8p1" {
 test "day8p2" {
     const actual = try day8.part2();
     const expected: u64 = 14449445933179;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day9p1" {
+    const actual = try day9.part1();
+    const expected: i32 = 1725987467;
+    try std.testing.expectEqual(expected, actual);
+}
+
+test "day9p2" {
+    const actual = try day9.part2();
+    const expected: i32 = 971;
     try std.testing.expectEqual(expected, actual);
 }
