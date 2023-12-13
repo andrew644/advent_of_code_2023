@@ -8,6 +8,9 @@ const day6 = @import("day6/day6.zig");
 const day7 = @import("day7/day7.zig");
 const day8 = @import("day8/day8.zig");
 const day9 = @import("day9/day9.zig");
+const day10 = @import("day10/day10.zig");
+const day11 = @import("day11/day11.zig");
+const day12 = @import("day12/day12.zig");
 
 pub fn main() !void {
     //std.debug.print("{d}\n", .{try day1.part1()});
@@ -36,6 +39,15 @@ pub fn main() !void {
 
     // std.debug.print("{d}\n", .{try day9.part1()});
     // std.debug.print("{d}\n", .{try day9.part2()});
+
+    // std.debug.print("{d}\n", .{try day10.part1()});
+    // std.debug.print("{d}\n", .{try day9.part2()});
+
+    // std.debug.print("{d}\n", .{try day11.part1()});
+    // std.debug.print("{d}\n", .{try day11.part2()});
+
+    std.debug.print("{d}\n", .{try day12.part1()});
+    // std.debug.print("{d}\n", .{try day11.part2()});
 }
 
 test "day1p1" {
